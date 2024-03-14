@@ -1,4 +1,4 @@
-interface IUser {
+export interface IUser {
     userId:string,
     firstName: string,
     middleName:string,
@@ -20,13 +20,16 @@ interface IUser {
 
 
 
-interface IOwner extends IUser{
-    restaurants:string[]
+export interface IOwner extends IUser{
+    restaurantIds:string[]
 }
 
-interface IStaff extends IUser{
+export interface IStaff extends IUser{
     role:string,
     restaurantId:string,
-
 }
+
+
+
+
 
