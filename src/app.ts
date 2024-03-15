@@ -24,17 +24,17 @@ const corsOptions = {
 // Use CORS middleware with the specified options
 app.use(cors(corsOptions));
 
-// console.log("CORS ALLOWED",process.env.CORS_ORIGIN)
-// app.use(cors({
-//   origin:process.env.CORS_ORIGIN,
-//   credentials
-// }));
+
 
 app.use(bodyParser.json());
 app.use(express.json({limit: "16kb"}))
 app.use(express.urlencoded({extended: true, limit: "16kb"}))
 app.use(express.static("public"))
 app.use(cookieParser())
+
+
+import userRoute from './routes/user.route';
+app.use('/api/v1/user', userRoute);
 
 
 
