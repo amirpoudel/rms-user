@@ -1,16 +1,21 @@
 import { NextFunction, Request,Response } from "express";
-import { OwnerService } from "../services/user.service";
+
+
+import { IUserInteractor } from "../interfaces/user.interface.interactor";
 
 export class UserController {
-    private ownerService:OwnerService; 
-    constructor(){
-        this.ownerService = new OwnerService();
+
+    private interactor:IUserInteractor;
+
+    constructor(interactor:IUserInteractor){
+
+        this.interactor =interactor;
     }
 
     createOwner = async (req:Request,res:Response,next:NextFunction)=>{
         try {
-            const owner = await this.ownerService.createOwner(req.body);
-            res.status(201).json({data:owner,message:"Owner created successfully"});
+            const user = await this.interactor.createUser(req.body);
+            res.status(201).json({data:user,message:"Owner created successfully"});
 
         }catch(err){
             next(err);
