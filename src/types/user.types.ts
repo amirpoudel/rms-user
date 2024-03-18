@@ -6,26 +6,16 @@ export interface IUser {
     email:string,
     phoneNumber:string,
     password:string,
-    contact:{
-        phoneNumber:string[],
-        address:{
-            province:string,
-            district:string,
-            municipality:string,
-            wardNumber:number,
-            areaName:string
-        }
-    }
+    role:string
 }
 
 
 
-export interface IOwner extends IUser{
+export interface IRestaurantOwner extends IUser{
     restaurantIds:string[]
 }
 
-export interface IStaff extends IUser{
-    role:string,
+export interface IRestaurantStaff extends IUser{
     restaurantId:string,
 }
 
