@@ -34,10 +34,10 @@ app.use(cookieParser())
 
 
 import userRoute from './routes/user.route';
+import restaurantOwnerRoute from './routes/restaurantOwner.route';
+
 app.use('/api/v1/user', userRoute);
-
-
-
+app.use('/api/v1/user/restaurant/owner',restaurantOwnerRoute);
 
 app.use(errorHandler);
 

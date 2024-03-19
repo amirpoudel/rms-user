@@ -12,4 +12,6 @@ export class RestaurantOwner extends User{
     ){
         super(id,name,email,password,role,createdAt);
     }
+
+    
 }

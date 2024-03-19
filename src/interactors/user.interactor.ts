@@ -4,6 +4,7 @@ import { IUserRepository } from "../interfaces/user.interface.repository";
 export class UserInteractor implements IUserInteractor{
     
    private respository:IUserRepository;
+   
 
    constructor(repository:IUserRepository){
        this.respository = repository;

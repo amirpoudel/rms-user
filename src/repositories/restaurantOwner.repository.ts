@@ -8,10 +8,7 @@ export class RestaurantOwnerRepository implements IRestaurantOwnerRepository{
 
 
     async createOwner(owner:RestaurantOwner):Promise<RestaurantOwner>{
-
-        const newOwner  = await RestaurantOwnerModel.create(owner);
-        return newOwner;
-
+        return  await RestaurantOwnerModel.create(owner);
     }
-
 }
+
