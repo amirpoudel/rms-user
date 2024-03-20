@@ -1,6 +1,6 @@
-import { User } from "./user.entity";
 
-export class RestaurantOwner extends User{
+
+export class RestaurantOwner {
     constructor(
         public readonly id:string,
         public readonly name:string,
@@ -10,8 +10,6 @@ export class RestaurantOwner extends User{
         public readonly createdAt:Date,
         public readonly restaurantIds:string[],
     ){
-        super(id,name,email,password,role,createdAt);
+        
     }
-
-    
 }
