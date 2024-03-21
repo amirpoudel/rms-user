@@ -2,13 +2,11 @@
 
 export class RestaurantOwner {
     constructor(
-        public readonly id:string,
         public readonly name:string,
         public readonly email:string,
         public readonly password:string,
-        public readonly role:string,
-        public readonly createdAt:Date,
-        public readonly restaurantIds:string[],
+        public readonly phoneNumber:string,
+        public readonly role:string="RESTAURANT-OWNER",
     ){
         
     }

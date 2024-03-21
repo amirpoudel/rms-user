@@ -5,20 +5,7 @@ import {IUser} from "../types/user.types";
 
 
 const userSchema = new Schema({
-    userId: {
-        type: String,
-        required: true,
-        unique: true,
-    },
-    firstName: {
-        type: String,
-        required: true,
-    },
-    middleName: {
-        type: String,
-        required: true,
-    },
-    lastName: {
+    name: {
         type: String,
         required: true,
     },

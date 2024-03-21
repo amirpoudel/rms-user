@@ -1,19 +1,26 @@
 import { RestaurantOwner } from "../entities/restaurantOwner.entity";
 import { User } from "../entities/user.entity";
 import { IRestaurantOwnerInteractor, IRestaurantOwnerRepository } from "../interfaces/IRestaurantOwner.interface";
+import { IValidationService } from "../interfaces/IValidation";
 
 export class RestaurantOwnerInteractor implements IRestaurantOwnerInteractor{
 
     private repository:IRestaurantOwnerRepository;
+    private validate : IValidationService;
 
-    constructor(repository:IRestaurantOwnerRepository){
+    constructor(repository:IRestaurantOwnerRepository,validate:IValidationService){
         this.repository = repository;
+        this.validate = validate;
     }
 
-    async createOwner(input: any) {
-        const owner = new RestaurantOwner(owner);
+    async createOwner({name,email,password,phoneNumber}:RestaurantOwner) {
+        console.log(name,email,password,phoneNumber)
+        this.validate.isEmail(email);
+      //  this.validate.isPassword(password);
+        this.validate.isPhoneNumber(phoneNumber);
+        const owner  = new RestaurantOwner(name,email,password,phoneNumber);
         const newOwner = await this.repository.createOwner(owner);
-        return newOwner;
+        return newOwner
     }
 
     async getOwnerById(id:string){

@@ -1,5 +1,4 @@
-import { IUserInteractor } from "../interfaces/user.interface.interactor";
-import { IUserRepository } from "../interfaces/user.interface.repository";
+import { IUserInteractor,IUserRepository} from "../interfaces/IUser";
 
 export class UserInteractor implements IUserInteractor{
     

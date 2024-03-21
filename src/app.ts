@@ -2,7 +2,7 @@ import express from 'express';
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import bodyParser from 'body-parser';
-import { errorHandler } from './utils/handler/errorHandler';
+import { ErrorHandler } from './utils/handler/ErrorHandler';
 
 const app = express();
 
@@ -39,7 +39,7 @@ import restaurantOwnerRoute from './routes/restaurantOwner.route';
 app.use('/api/v1/user', userRoute);
 app.use('/api/v1/user/restaurant/owner',restaurantOwnerRoute);
 
-app.use(errorHandler);
+app.use(ErrorHandler.expressErrorHandler);
 
 
 

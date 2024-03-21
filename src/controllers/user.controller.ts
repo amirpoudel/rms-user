@@ -1,7 +1,7 @@
 import { NextFunction, Request,Response } from "express";
 
 
-import { IUserInteractor } from "../interfaces/user.interface.interactor";
+import { IUserInteractor } from "../interfaces/IUser";
 
 export class UserController {
 
