@@ -4,11 +4,17 @@ import { IRestaurantOwnerRepository } from "../interfaces/IRestaurantOwner.inter
 import { RestaurantOwnerModel } from "../models/restaurantOwner.model";
 
 
+
+
 export class RestaurantOwnerRepository implements IRestaurantOwnerRepository{
 
 
     async createOwner(owner:RestaurantOwner):Promise<RestaurantOwner>{
-        return  await RestaurantOwnerModel.create(owner);
+       try {
+        return await RestaurantOwnerModel.create(owner);
+       } catch (error) {
+        throw error;
+       }
     }
 
     async getOwnerById(id:string):Promise<RestaurantOwner|null>{

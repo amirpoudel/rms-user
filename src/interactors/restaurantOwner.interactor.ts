@@ -2,6 +2,7 @@ import { RestaurantOwner } from "../entities/restaurantOwner.entity";
 import { User } from "../entities/user.entity";
 import { IRestaurantOwnerInteractor, IRestaurantOwnerRepository } from "../interfaces/IRestaurantOwner.interface";
 import { IValidationService } from "../interfaces/IValidation";
+import ApiError from "../utils/handler/error/ApiError";
 
 export class RestaurantOwnerInteractor implements IRestaurantOwnerInteractor{
 
@@ -14,13 +15,20 @@ export class RestaurantOwnerInteractor implements IRestaurantOwnerInteractor{
     }
 
     async createOwner({name,email,password,phoneNumber}:RestaurantOwner) {
-        console.log(name,email,password,phoneNumber)
-        this.validate.isEmail(email);
-      //  this.validate.isPassword(password);
-        this.validate.isPhoneNumber(phoneNumber);
-        const owner  = new RestaurantOwner(name,email,password,phoneNumber);
-        const newOwner = await this.repository.createOwner(owner);
-        return newOwner
+      
+        try {
+            console.log(name,email,password,phoneNumber)
+            this.validate.isEmail(email);
+            //  this.validate.isPassword(password);
+            this.validate.isPhoneNumber(phoneNumber);
+            const owner  = new RestaurantOwner(name,email,password,phoneNumber);
+            const newOwner = await this.repository.createOwner(owner);
+            return newOwner
+        } catch (error) {
+            throw error
+        }
+            
+        
     }
 
     async getOwnerById(id:string){
