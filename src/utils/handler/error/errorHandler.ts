@@ -2,7 +2,7 @@ import {Request,Response,Errback} from 'express';
 
 
 import { MongooseError } from 'mongoose';
-import { MongoServerErrorHandler, MongooseErrorHandler } from './MongoError';
+import { MongoServerErrorHandler, MongooseErrorHandler } from './mongoError';
 
 import { MongoServerError } from "mongodb";
 

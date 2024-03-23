@@ -4,12 +4,14 @@ import { RestaurantOwnerController } from "../controllers/restaurantOwner.contro
 import { RestaurantOwnerRepository } from "../repositories/restaurantOwner.repository";
 import { RestaurantOwnerInteractor } from "../interactors/restaurantOwner.interactor";
 import { ValidationService } from "../application/services/validation.service";
+import { AuthService } from "../application/services/auth.service";
 
 const router = Router();
 
 const repository = new RestaurantOwnerRepository();
 const validate = new ValidationService();
-const interactor = new RestaurantOwnerInteractor(repository,validate);
+const auth = new AuthService();
+const interactor = new RestaurantOwnerInteractor(repository,validate,auth);
 
 const restaurantOwnerController = new RestaurantOwnerController(interactor);
 

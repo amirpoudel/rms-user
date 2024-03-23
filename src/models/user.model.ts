@@ -1,7 +1,8 @@
 // owner schema 
 
 import mongoose, { Schema } from "mongoose";
-import {IUser} from "../types/user.types";
+
+import { User } from "../entities/user.entity";
 
 
 const userSchema = new Schema({
@@ -29,5 +30,5 @@ const userSchema = new Schema({
 
 
 
-export const UserModel = mongoose.model<IUser>("User", userSchema);
+export const UserModel = mongoose.model<User>("User", userSchema);
 

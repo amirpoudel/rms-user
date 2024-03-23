@@ -7,9 +7,12 @@ export class User{
         public readonly password:string,
         public readonly role:string,
         public readonly createdAt:Date,
+        public  accessToken:string,
+        public  refreshToken:string
 
     ){};
 
    
 
 }
+

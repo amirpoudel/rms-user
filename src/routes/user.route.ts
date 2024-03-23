@@ -2,15 +2,15 @@ import { Router } from "express";
 import { UserController } from "../controllers/user.controller";
 import { UserRepository } from "../repositories/user.repository";
 import { UserInteractor } from "../interactors/user.interactor";
+import { AuthService } from "../application/services/auth.service";
 
 const router = Router();
 
 const repository = new UserRepository();
-const interactor = new UserInteractor(repository);
+const auth = new AuthService();
+const interactor = new UserInteractor(repository,auth);
+const controller = new UserController(interactor);
 
-
-const userController = new UserController(interactor);
-
-router.post("/create-owner", userController.createOwner);
+router.route("/login").post(controller.loginUser);
 
 export default router;

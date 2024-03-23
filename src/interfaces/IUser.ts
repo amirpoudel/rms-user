@@ -1,12 +1,20 @@
+import { User } from "../entities/user.entity";
+
 export interface IUserInteractor{
-    
-    createUser(input:any):Promise<any>;
-    
+    loginUser({email,password}:User):Promise<{
+        user:User,
+        accessToken:string,
+        refreshToken:string
+    }>;
 }
+
 
 
 
 export interface IUserRepository{
-    create(data:any):Promise<any>;
-    
+    findUserByEmail(email:string):Promise<User|null>;
 }
+
+
+
+
